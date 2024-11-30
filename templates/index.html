@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spiral Control</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap"
+      rel="stylesheet"
+    />
+    <script src="{{ url_for('static', filename='p5.js') }}"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <style>
+      body {
+        background-color: #cccccc;
+      }
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px;
+        padding: 20px;
+      }
+
+      #toggle-dark {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #toggle-dark:hover {
+        background-color: #0056b3;
+      }
+      #p5-canvas {
+        border: 4px dashed #251313;
+        border-radius: 0.5em;
+      }
+      .color-box {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        cursor: pointer;
+        border: 2px solid #000;
+      }
+      .palette {
+        margin: 1em;
+        display: flex;
+        justify-content: space-between;
+      }
+      #palette-selector {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+      }
+
+      #palette-selector:hover {
+        border-color: #007bff;
+      }
+      #ball-size-slider {
+        width: 100%;
+        margin-top: 10px;
+      }
+      #top {
+        display: flex;
+        justify-content: space-around;
+        font-family: "Jaro", sans-serif;
+        font-size: large;
+        color: rgb(44, 44, 44);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="top">
+      <h1>Colored Ballz</h1>
+    </div>
+    <div class="container">
+      <div id="p5-canvas"></div>
+      <div id="ui-container">
+        <button id="toggle-dark">Dark Mode</button>
+        <select id="palette-selector">
+          <option value="startingHues">Starting Hues</option>
+          <option value="brightCols">Bright Colors</option>
+          <option value="anotherPalette">Another Palette</option>
+          <option value="yellowBlast">Yellow Blast</option>
+        </select>
+        <div class="palette" id="palette"></div>
+        <input
+          type="range"
+          id="ball-size-slider"
+          min="10"
+          max="200"
+          value="50"
+        />
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='sketch.js') }}"></script>
+  </body>
+</html>
