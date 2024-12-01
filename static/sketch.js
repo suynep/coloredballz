@@ -150,7 +150,7 @@ function setup() {
 function draw() {
   background(...bgColor);
   for (let i = 0; i < balls.length; i++) {
-    if (balls[i].faded) balls.splice(i, 1);
+    if (balls[i].faded) balls.splice(i, 1); // optimize for maintaining a minimal array size
     balls[i].draw();
     console.log(lightness(balls[i].col));
   }
